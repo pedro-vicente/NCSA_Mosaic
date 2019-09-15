@@ -1,4 +1,4 @@
-#include "../config.h"
+﻿#include "../config.h"
 #include "HTInit.h"
 
 #include "HTML.h"
@@ -489,6 +489,7 @@ PUBLIC void HTFileInit NOARGS
 
 #define MAX_STRING_LEN 256
 
+#ifdef NEED_IT
 static int getline(char *s, int n, FILE *f) 
 {
   register int i=0;
@@ -510,6 +511,7 @@ static int getline(char *s, int n, FILE *f)
 
   /* NOTREACHED */
 }
+#endif
 
 static void getword(char *word, char *line, char stop, char stop2) 
 {
