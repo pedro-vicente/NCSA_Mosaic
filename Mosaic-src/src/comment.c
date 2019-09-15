@@ -68,6 +68,232 @@
 #include <pwd.h>
 #include <sys/utsname.h>
 
+char *comment_card_html_top= \
+"<title>\n" \
+"	Comment Card for Mosaic 2.6\n" \
+"</title>\n" \
+"\n" \
+"<h1 align=center>\n" \
+"	Please Help Us Help You!!\n" \
+"</h1>\n" \
+"\n" \
+"<hr>\n" \
+"\n" \
+"<h2>\n" \
+"	Thank you for using NCSA Mosaic! We are continually striving to\n" \
+"	improve Mosaic to better meet the needs of its users. We would\n" \
+"	appreciate your taking the time to answer these few questions.\n" \
+"</h2>\n" \
+"\n" \
+"<hr>\n" \
+"\n" \
+"<form method=\"POST\" action=\"http://sdg.ncsa.uiuc.edu/XCGI/comment26\">\n" \
+"\n" \
+"	<h3>\n" \
+"		<ul>\n" \
+"			<li>\n" \
+"				If you do not like surveys or you have already\n" \
+"				completed this survey, please press this\n" \
+"				button,\n" \
+"				<input type=\"submit\" value=\"Just Count Me\" \n" \
+"				name=\"countme\">,\n" \
+"				to be counted. Pushing the above button\n" \
+"				will send the following information about\n" \
+"				your system to be used in our statistics\n" \
+"				(completely anonymous):\n" \
+"				<p>\n" \
+"\n";
+
+char *comment_card_html_bot= \
+"				</p>\n" \
+"			</li>\n" \
+"			<br>\n" \
+"			<li>\n" \
+"				If you do not want to fill out this card,\n" \
+"				just push the \"Close Window\" button at the\n" \
+"				bottom of this window.\n" \
+"			</li>\n" \
+"			<br>\n" \
+"			<li>\n" \
+"				Otherwise, please proceed!\n" \
+"			</li>\n" \
+"		</ul>\n" \
+"	</h3>\n" \
+"\n" \
+"	<hr>\n" \
+"\n" \
+"	<p>\n" \
+"		How long have you been using Mosaic?\n" \
+"		<br>\n" \
+"		<select name=\"usage\">\n" \
+"			<option value=\"no comment\" selected>\n" \
+"				No Comment\n" \
+"			<option value=\"never\">\n" \
+"				Never\n" \
+"			<option value=\"lt 1 mon\">\n" \
+"				Less Than 1 Month\n" \
+"			<option value=\"1-6 mon\">\n" \
+"				1 - 6 Months\n" \
+"			<option value=\"6 mon-1 yr\">\n" \
+"				6 Months to a Year\n" \
+"			<option value=\"1-2 yrs\">\n" \
+"				1 - 2 Years\n" \
+"			<option value=\"gt 2 yrs\">\n" \
+"				More Than 2 Years\n" \
+"		</select>\n" \
+"	</p>\n" \
+"\n" \
+"	<p>\n" \
+"		How familiar are you with the World Wide Web?\n" \
+"		<br>\n" \
+"		<select name=\"www\">\n" \
+"			<option value=\"no comment\" selected>\n" \
+"				No Comment\n" \
+"			<option value=\"no experience\">\n" \
+"				No Experience\n" \
+"			<option value=\"novice\">\n" \
+"				Novice\n" \
+"			<option value=\"intermediate\">\n" \
+"				Intermediate\n" \
+"			<option value=\"expert\">\n" \
+"				Expert\n" \
+"			<option value=\"master\">\n" \
+"				Web Master\n" \
+"		</select>\n" \
+"	</p>\n" \
+"\n" \
+"	<p>\n" \
+"		On which other platform(s) do you use Mosaic?\n" \
+"		<br>\n" \
+"		<select name=\"platform\">\n" \
+"			<option value=\"no comment\" selected>\n" \
+"				No Comment\n" \
+"			<option value=\"no other\">\n" \
+"				No Other\n" \
+"			<option value=\"mac\">\n" \
+"				Macintosh\n" \
+"			<option value=\"windows\">\n" \
+"				Windows\n" \
+"			<option value=\"mac and windows\">\n" \
+"				Macintosh and Windows\n" \
+"		</select>\n" \
+"	</p>\n" \
+"\n" \
+"	<p>\n" \
+"		What type of internet connection do you have?\n" \
+"		<br>\n" \
+"		<select name=\"connection\">\n" \
+"			<option value=\"no comment\" selected>\n" \
+"				No Comment\n" \
+"			<option value=\"no connection\">\n" \
+"				No Connection\n" \
+"			<option value=\"don't know\">\n" \
+"				Don't Know\n" \
+"			<option value=\"modem lt 9600\">\n" \
+"				Modem Less Than 9600\n" \
+"			<option value=\"modem eq 9600\">\n" \
+"				Modem at 9600\n" \
+"			<option value=\"modem eq 144\">\n" \
+"				Modem at 14.4k\n" \
+"			<option value=\"modem eq 288\">\n" \
+"				Modem at 28.8k\n" \
+"			<option value=\"modem gt 288\">\n" \
+"				Modem Greater Than 28.8k\n" \
+"			<option value=\"isdn\">\n" \
+"				ISDN\n" \
+"			<option value=\"direct\">\n" \
+"				Direct Connection\n" \
+"		</select>\n" \
+"	</p>\n" \
+"\n" \
+"	<p>\n" \
+"		Have you ever sent email to our technical support?\n" \
+"		<br>\n" \
+"		<select name=\"email\">\n" \
+"			<option value=\"no comment\" selected>\n" \
+"				No Comment\n" \
+"			<option value=\"yes\">\n" \
+"				Yes, I Have\n" \
+"			<option value=\"no\">\n" \
+"				No, I Have Not\n" \
+"		</select>\n" \
+"\n" \
+"		<dl>\n" \
+"			<dd>\n" \
+"				If so, was it satisfactory?\n" \
+"				<br>\n" \
+"				<select name=\"satisfied\">\n" \
+"					<option value=\"no comment\" selected>\n" \
+"						No Comment\n" \
+"					<option value=\"yes\">\n" \
+"						Yes, It Was\n" \
+"					<option value=\"no\">\n" \
+"						No, It Was Not\n" \
+"				</select>\n" \
+"				<dl>\n" \
+"					<dd>\n" \
+"						Why or why not?\n" \
+"						<textarea name=\n" \
+"						\"satisfied_feedback\" \n" \
+"						rows=2 cols=40>\n" \
+"						</textarea>\n" \
+"					</dd>\n" \
+"				</dl>\n" \
+"			</dd>\n" \
+"		</dl>\n" \
+"	</p>\n" \
+"\n" \
+"<!---\n" \
+"NOTE:\n" \
+"	The following list of browsers\n" \
+"	are IN ALPHABETICAL ORDER! Please Please Please, if you add one, put\n" \
+"	it in ALPHABETICAL order as well...so we are not accused of being\n" \
+"	perferential\n" \
+"--->\n" \
+"	<p>\n" \
+"		What is your <b>favorite</b> Web browser?\n" \
+"		<dl>\n" \
+"			<dd>\n" \
+"				<select name=\"favorite\" size=5>\n" \
+"					<option value=\"no comment\" selected>\n" \
+"						No Comment\n" \
+"					<option value=\"arena\">\n" \
+"						Arena\n" \
+"					<option value=\"emacs-w3\">\n" \
+"						Emacs-W3\n" \
+"					<option value=\"spyglass\">\n" \
+"						Enhanced Mosaic (Spyglass)\n" \
+"					<option value=\"hot java\">\n" \
+"						Hot Java\n" \
+"					<option value=\"lynx\">\n" \
+"						Lynx\n" \
+"					<option value=\"ncsa\">\n" \
+"						N.C.S.A. Mosaic\n" \
+"					<option value=\"netscape $$$\">\n" \
+"						Netscape (for $$$)\n" \
+"					<option value=\"netscape free\">\n" \
+"						Netscape (for free)\n" \
+"					<option value=\"viola\">\n" \
+"						Viola\n" \
+"				</select>\n" \
+"			</dd>\n" \
+"		</dl>\n" \
+"	</p>\n" \
+"\n" \
+"	<p>\n" \
+"		Other comments and/or suggestions are welcomed:\n" \
+"		<textarea name=\"comments_feedback\" rows=5 cols=60>\n" \
+"		</textarea>\n" \
+"	</p>\n" \
+"\n" \
+"	<p>\n" \
+"		When you are done, please press this button:\n" \
+"		<input type=\"submit\" value=\"Submit Comment Card for X Mosaic\"\n" \
+"		name=\"submitme\">\n" \
+"	</p>\n" \
+"\n" \
+"</form>\n" \
+"\n";
 
 #ifdef DEBUG_CC
 int do_comment=1;
