@@ -6,13 +6,14 @@ we obtained it from here
 
 [https://archives.library.illinois.edu/erec/University%20Archives/0705012/Unix/source/](https://archives.library.illinois.edu/erec/University%20Archives/0705012/Unix/source/)
 
-##Build
+## Build
 
 We used Linux Ubuntu 18.04. Mosaic was written in the C programming language and the UNIX version uses the X11 (and Motif) as the windowing system. To install these libraries on Ubuntu Linux 18.04 do
 
 ```
 sudo apt-get install libxt-dev
 sudo apt-get install libmotif-dev
+sudo apt-get install libxmu-headers
 sudo apt-get install libxmu-headers
 ```
 
@@ -22,7 +23,7 @@ The original build system included 'make' files for several UNIX systems and lat
 sudo apt-get install qt5-default qtcreator
 ```
 
-The source code assumes the existence of the file 'config.h' at root, genereated by GNU automake. This file includes several pre-processor macros but is not needed for the Qt build, and can be generated with
+The source code assumes the existence of the filsudo apt-get install libxmu-headerse 'config.h' at root, genereated by GNU automake. This file includes several pre-processor macros but is not needed for the Qt build, and can be generated with
 
 ```
 touch config.h
@@ -35,16 +36,16 @@ TEMPLATE = subdirs
 SUBDIRS = libwww2 libXmx libhtmlw libnut src
 ```
 
-which lists 4 subdirectories with libraries and the sudo apt-get install libxmu-headersdirectory 'src', where the main program is located. To build, do at a command prompt at the root directory
+which lists 4 subdirectories with libraries and the directory 'src', where the main program is located. To build, do at a command prompt at the root directory
 
 ```
 /usr/bin/qmake -r
 make
 ```
 
-##Fixing compiling errors
+## Fixing compiling errors
 
-###libwww2
+### libwww2
 
 Mosaic uses 'libwww', the original World Wide Web C library written by its inventor, Tim Berners-Lee. The source included an implementation of the function 'getline'
 
@@ -57,10 +58,24 @@ that was standardized in POSIX.1-2008, so we can just comment this definition. I
 extern char *sys_errlist[];
 ```
 
-that in recent Linux musbe be changed to
+that in recent Linux must be changed to
 
 ```
 extern const char *const sys_errlist[];
+```
+
+### libhtmlw
+
+This library includes the pre-standard C header `<varargs.h>` and the function definition
+
+```
+static int PSprintf(format, va_alist)
+```
+
+The header must be changed to `<stdarg.h>` and the function to
+
+```
+static int PSprintf(char *format, ...)
 ```
 
 
