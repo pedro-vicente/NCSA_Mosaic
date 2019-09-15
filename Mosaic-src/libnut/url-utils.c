@@ -163,7 +163,7 @@ int rind(char *s, char c) {
     return -1;
 }
 
-
+#ifdef NEED_IT
 int getline(char *s, int n, FILE *f) {
     register int i=0;
 
@@ -180,7 +180,7 @@ int getline(char *s, int n, FILE *f) {
         ++i;
     }
 }
-
+#endif
 
 void send_fd(FILE *f, FILE *fd)
 {
