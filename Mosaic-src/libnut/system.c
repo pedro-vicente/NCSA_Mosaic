@@ -103,7 +103,7 @@ extern char *strdup(char *str);
 
 #ifndef VMS
 extern int sys_nerr;
-extern char *sys_errlist[];
+extern const char *const sys_errlist[];
 extern int errno;
 #endif
 

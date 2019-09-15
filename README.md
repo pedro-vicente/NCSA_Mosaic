@@ -11,10 +11,7 @@ we obtained it from here
 We used Linux Ubuntu 18.04. Mosaic was written in the C programming language and the UNIX version uses the X11 (and Motif) as the windowing system. To install these libraries on Ubuntu Linux 18.04 do
 
 ```
-sudo apt-get install libxt-dev
-sudo apt-get install libmotif-dev
-sudo apt-get install libxmu-headers
-sudo apt-get install libxmu-headers
+sudo apt-get install libxt-dev libmotif-dev libxmu-headers libxmu-dev libxpm-dev
 ```
 
 The original build system included 'make' files for several UNIX systems and later GNU automake was added. We added a build based on Qt because it provides an IDE with a built in debugger. To install Qt on linux
