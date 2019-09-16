@@ -20,7 +20,7 @@ The original build system included 'make' files for several UNIX systems and lat
 sudo apt-get install qt5-default qtcreator
 ```
 
-The source code assumes the existence of the filsudo apt-get install libxmu-headerse 'config.h' at root, genereated by GNU automake. This file includes several pre-processor macros but is not needed for the Qt build, and can be generated with
+The source code assumes the existence of the file 'config.h' at root, genereated by GNU automake. This file includes several pre-processor macros but is not needed for the Qt build, and can be generated with
 
 ```
 touch config.h
