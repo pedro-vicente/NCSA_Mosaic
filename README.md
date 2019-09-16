@@ -75,7 +75,7 @@ The header must be changed to `<stdarg.h>` and the function to
 static int PSprintf(char *format, ...)
 ```
 
-
+![img](https://user-images.githubusercontent.com/6119070/64930508-64d7b000-d7ff-11e9-8171-198aebca98be.jpg)
 
 
 
